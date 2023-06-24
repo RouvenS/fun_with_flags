@@ -53,3 +53,12 @@ class Game:
             button.configure(text=answer, command=lambda ans=answer: self.check_answer(ans))
 
     # the rest of your Game class...
+    # check answer class
+    def check_answer(self, answer):
+        if answer == self.current_country.name:
+            self.score += 1
+            self.score_label.configure(text=f"Score: {self.score}")
+        else:
+            self.score = 0
+            self.score_label.configure(text=f"Score: {self.score}")
+        self.start_game()
